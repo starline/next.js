@@ -15,5 +15,50 @@ a {
   box-sizing: border-box;
 }
 
+.page {
+  display: flex;
+  min-height: 100vh;
+}
 
-.btn {margin: 10px;}
+/* Фиксируем позицию body, которую меняет панель гугла*/
+.page_fix {
+  top: 0 !important;
+  position: static !important;
+}
+
+/* Прячем панель гугла */
+.skiptranslate {
+  display: none !important;
+}
+
+/* language */
+.language {
+  position: fixed;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+}
+.language__img {
+  border: 3px solid #ccc;
+  width: 39px;
+  margin: 5px;
+  cursor: pointer;
+  opacity: .5;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 4px;
+}
+
+.language__img:hover,
+.language__img_active {
+  opacity: 1;
+}
+
+/* content */
+.content {
+  margin: 10px;
+  text-align: center;
+  margin: auto;
+}
