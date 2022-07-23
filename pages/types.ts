@@ -15,7 +15,7 @@ const arrStringVar: string[] =['Hello', 'TypeScript']
 let anyVar: any  = 'string'
 anyVar = 12
 
-function myFunction(fVar:string): void{
+function myFunction(fVar: string): void{
   console.log(fVar)
 }
 myFunction('myFunction ok')
@@ -34,7 +34,7 @@ interface IRect{
   readonly id:number,
   color?: string, // необязательный 
   size: {
-    width: number
+    width: login
     height: number
   }
 }
