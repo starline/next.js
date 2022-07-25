@@ -19,7 +19,6 @@
     "nodemon": "^2.0.19",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "telebot": "^1.4.1",
     "tls": "^0.0.1",
     "universal-cookie": "^4.0.4"
   },

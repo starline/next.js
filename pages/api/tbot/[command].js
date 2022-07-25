@@ -24,12 +24,13 @@ export default function tbot(req, res){
         if (text === '/start'){
            await bot.sendSticker(chatId, 'https://tlgrm.ru/_/stickers/5eb/843/5eb8436f-51c7-315b-abc5-7f45216b5502/3.jpg')
            return bot.sendMessage(chatId, `Добро пожаловать? ${msg.from.first_name} ${msg.from.last_name}!`)
-       
         }
-        if (text.toLowerCase().trim() === '/off') {
+
+        if (text.toLowerCase().trim() === '/off') 
             return bot.sendMessage(chatId, `Я выключаюсь, пока!`)
        
-        } 
+        if (text === '/chatid')
+            return bot.sendMessage(chatId, `chatId: ${chatId}`)
         
         return bot.sendMessage(chatId, `Вы написали мне 📢: ${text}`)
         
