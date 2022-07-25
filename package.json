@@ -12,13 +12,21 @@
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
     "@mui/material": "^5.9.0",
+    "fs": "^0.0.1-security",
+    "net": "^1.0.2",
     "next": "12.2.2",
+    "node-telegram-bot-api": "^0.17.1",
+    "nodemon": "^2.0.19",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "telebot": "^1.4.1",
+    "tls": "^0.0.1",
     "universal-cookie": "^4.0.4"
   },
   "devDependencies": {
     "@types/node": "^18.0.3",
+    "@types/node-telegram-bot-api": "^0.57.1",
+    "@types/telebot": "^1.2.4",
     "eslint": "8.19.0",
     "eslint-config-next": "12.2.2"
   }

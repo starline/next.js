@@ -1,7 +1,8 @@
 import React from 'react';
 import Button from '@mui/material/Button';
-import {MainLayout} from "../layouts/MainLayout";
+import { MainLayout } from "../layouts/MainLayout";
 import type { NextPage } from 'next';
+
 
 const Home:NextPage = () => {
   return  (
@@ -22,3 +23,5 @@ const Home:NextPage = () => {
 }
 
 export default Home;
+
+
