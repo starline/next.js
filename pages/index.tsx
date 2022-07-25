@@ -1,13 +1,9 @@
-import * as React from 'react';
-import Head from 'next/head';
+import React from 'react';
 import Button from '@mui/material/Button';
-import GoogleTranslate from './modules/google-translate';
-import { Breadcrumbs, Link, Tab, Tabs } from '@mui/material';
-import {MainLayout} from '../components/MainLayout';
+import {MainLayout} from "../layouts/MainLayout";
+import type { NextPage } from 'next';
 
-export default function App() {
-
-
+const Home:NextPage = () => {
   return  (
     <MainLayout title={'Homa Page'} description={"Описание страницы Home"}>
 
@@ -24,3 +20,5 @@ export default function App() {
     </MainLayout>
   )
 }
+
+export default Home;

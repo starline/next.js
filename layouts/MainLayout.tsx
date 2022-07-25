@@ -1,7 +1,16 @@
-import { Button } from "@mui/material";
-import Head from "next/head";
+import Button from '@mui/material/Button'
+import Head from 'next/head'
+import React from 'react'
 
-export function MainLayout({children, title = '', description = ''}){
+type IMainLayoutProps = {
+    children: React.ReactNode,
+    title: string,
+    description?: string,
+    className?: string,
+} 
+
+export function MainLayout({title, description, children}:IMainLayoutProps) {
+
     return(
         <>
         <Head>

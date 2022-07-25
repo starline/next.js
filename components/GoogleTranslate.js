@@ -3,7 +3,7 @@
  * https://Get-Web.Site/
  * author: Vitalii P.
  *****************************************************/
-import Cookies from "universal-cookie";
+import {Cookies} from "universal-cookie";
 
 function GoogleTranslate (){
 

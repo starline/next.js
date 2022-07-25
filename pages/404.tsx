@@ -1,4 +1,4 @@
-import {MainLayout} from '../components/MainLayout'
+import {MainLayout} from "../layouts/MainLayout";
 import css from '../styles/error.module.css'
 
 export default function Error404(){

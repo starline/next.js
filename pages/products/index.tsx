@@ -1,7 +1,8 @@
 import Head from 'next/head';
-import { MainLayout } from '../../components/MainLayout';
+import {MainLayout} from "../../layouts/MainLayout";
 
-const Products = () => (
+export default function Products() {
+  return(
     <MainLayout title={'Products Page'} description={"Описание страницы Товаров"}>
       <Head>
         <title>страница Товаров</title>
@@ -9,6 +10,5 @@ const Products = () => (
 
       <h1>Товары</h1>
     </MainLayout>
-)
-
-export default Products
+  )
+}

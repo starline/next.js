@@ -1,6 +1,6 @@
 import Head from "next/head"
 import { useRouter } from "next/router"
-import { MainLayout } from "../../components/MainLayout"
+import {MainLayout} from "../../layouts/MainLayout"
 
 export default function Product() {
     const router = useRouter()
