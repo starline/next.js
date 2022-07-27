@@ -1,10 +1,11 @@
 import TelegramBot from "node-telegram-bot-api";
+import { NextApiRequest, NextApiResponse } from "next";
 
 
-export default function tbot(req, res){
+export default function tbot(req:NextApiRequest, res:NextApiResponse){
 
-    const token =  process.env.T_TOKEN
-    const bot = new TelegramBot(token, {polling: true})
+    const token:string =  process.env.T_TOKEN
+    const bot:TelegramBot = new TelegramBot(token, {polling: true})
 
     if (req.query.command === 'start'){
         res.json({response: 'Бот Grizli запущен'})

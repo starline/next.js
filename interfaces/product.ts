@@ -7,3 +7,7 @@ export interface IProduct {
 export interface IProducts{
     products: IProduct[]
 }
+
+export interface IProductProps{
+    product: IProduct
+}

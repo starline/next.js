@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
 import Button from '@mui/material/Button';
 import { MainLayout } from "../layouts/MainLayout";
-import { IProducts, IProduct } from '../interfaces/product';
 
 
-export default function Home({products}:IProducts) {
+export default function Home() {
   console.log('Home')
 
   useEffect(()=>{
@@ -24,28 +23,9 @@ export default function Home({products}:IProducts) {
         <p>Hello Мир!!!</p>
       </div>
 
-      {products.map(product => (
-        <div>{product.id} {product.title}</div>
-      ))}
 
     </MainLayout>
   )
-}
-
-// Эта функция выполняется каждый раз при обращении к странице
-export async function getServerSideProps() {
-
-  // Создаем данные
-  const products:IProduct[] = [{
-    id: 1,
-    title: 'Первый товар: ' + Math.random(),
-    body: 'Описание первого товара'
-  }]
-
-  // Возвращаем данные в props
-  return {props: {
-    products
-  }}
 }
 
 
