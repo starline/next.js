@@ -124,4 +124,16 @@ const hello='hello'
 const world='world'
 const join = `${hello} ${world}`
 
+// ... 
+const arr10:[string, string, string, string] = ['a','b','c','d']
+arr10[1] = 'two'
+let arr20 = [...arr10] // ['a','b','c','d']
+let arr30 = [1, 2, ...arr20, 3] // [1, 2, 'a','b','c','d', 3]
+
+function addProp(var1:string, var2:string, var3:string, var4:string):string{
+  return var1+var2+var3+var4 
+}
+
+console.log(addProp(...arr10))
+
 console.dir(myObject)

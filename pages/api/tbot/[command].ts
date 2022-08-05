@@ -20,7 +20,7 @@ export default function tbot(req:NextApiRequest, res:NextApiResponse){
         const text = msg.text
         const chatId = msg.chat.id
 
-        console.log(text)
+        console.log(this.text)
         
         if (text === '/start'){
            await bot.sendSticker(chatId, 'https://tlgrm.ru/_/stickers/5eb/843/5eb8436f-51c7-315b-abc5-7f45216b5502/3.jpg')

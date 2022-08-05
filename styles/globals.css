@@ -14,6 +14,25 @@ a {
 * {
   box-sizing: border-box;
 }
+body {flex-direction: column;}
+header, main {
+  margin: 0 10%;
+}
+
+
+footer {
+  margin-top: 25px;
+  background-color: #27313D;
+  border-top: 1px solid #F2F2F2;
+}
+footer .wrap {
+  color: #fff;
+  margin: 0 10%;
+  min-height: 100px;
+  margin-top: 20px;
+  padding: 15px 0;
+}
+
 
 .page {
   display: flex;
@@ -59,6 +78,18 @@ a {
 /* content */
 .content {
   margin: 10px;
-  text-align: center;
   margin: auto;
+}
+
+.product_row {
+  justify-content:space-between;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.product_item {
+  padding: 20px;
+  margin: 0px;
+  border: 1px solid #ccc;
+  width: fit-content;
 }

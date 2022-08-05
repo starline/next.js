@@ -6,22 +6,25 @@ import {MainLayout} from "../../layouts/MainLayout";
 export default function Products({products}:IProducts) {
   return(
     <MainLayout title={'Products Page'} description={"Описание страницы Товаров"}>
+
       <Head>
         <title>страница Товаров</title>
       </Head>
 
       <h1>Товары</h1>
-
-      {products.map(product => (
-        <div key={product.id}>
-          <Link href={`/products/${product.id}`}>{product.id} {product.title}</Link>
-        </div>
-      ))}
+      
+      <div className='product_row'>
+        {products.map(product => (
+          <div className='product_item' key={product.id}>
+            <Link href={`/products/${product.id}`}>{product.id} {product.title}</Link>
+          </div>
+        ))}
+      </div>
     </MainLayout>
   )
 }
 
-// Эта функция выполняется каждый раз при обращении к страницена стороне сервера
+// Эта функция выполняется каждый раз при обращении к странице на стороне сервера
 export async function getServerSideProps() {
 
   // Создаем данные
@@ -33,8 +36,13 @@ export async function getServerSideProps() {
     },
     {
       id: 2,
-      title: 'Второй товар: ',
+      title: 'Второй товар "2" ',
       body: 'Описание второго товара'
+    },
+    {
+      id:3,
+      title: 'Третий продук',
+      body: 'Описание треьего продукта'
     }
 ]
 

@@ -1,13 +1,15 @@
 import React, { useEffect } from 'react';
 import Button from '@mui/material/Button';
 import { MainLayout } from "../layouts/MainLayout";
-
+import {GoogleTranslate} from "../lib/GoogleTranslate"
 
 export default function Home() {
   console.log('Home')
 
   useEffect(()=>{
     console.log('useEffect');
+    //GoogleTranslate()
+
   })
 
   return  (
