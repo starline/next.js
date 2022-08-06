@@ -4,26 +4,26 @@ import { IProductProps } from "../interfaces/product";
 
 interface IState {
     date?: Date;
-  }
+}
 
 export class Product extends React.Component<IProductProps, IState> {
-    
+
     timerID: NodeJS.Timer;
 
-    constructor(props:IProductProps){
+    constructor(props: IProductProps) {
         super(props)
-        this.state = {date: new Date()}
+        this.state = { date: new Date() }
     }
-    
+
     componentDidMount() {
         this.timerID = setInterval(
             () => this.tick(), 1000
         )
     }
-    
-    tick(){
+
+    tick() {
         this.setState({
-            date:new Date()
+            date: new Date()
         })
     }
 
@@ -39,8 +39,8 @@ export class Product extends React.Component<IProductProps, IState> {
                         <div className="product_item_name">{this.props.product.id} {this.props.product.title}</div>
                         <div className="product_item_time">{this.state.date.toLocaleTimeString()}</div>
                     </div>
-                </a>                
-            </Link>  
+                </a>
+            </Link>
         )
     }
 }

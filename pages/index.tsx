@@ -1,18 +1,18 @@
 import React, { useEffect } from 'react';
 import Button from '@mui/material/Button';
 import { MainLayout } from "../layouts/MainLayout";
-import {GoogleTranslate} from "../lib/GoogleTranslate"
+import { GoogleTranslate } from "../lib/GoogleTranslate"
 
 export default function Home() {
   console.log('Home')
 
-  useEffect(()=>{
+  useEffect(() => {
     console.log('useEffect');
     //GoogleTranslate()
 
   })
 
-  return  (
+  return (
     <MainLayout title={'Homa Page'} description={"Описание страницы Home"}>
 
       <h1>Главная страница - Список товаров</h1>

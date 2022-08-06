@@ -7,45 +7,45 @@ type IMainLayoutProps = {
     title: string,
     description?: string,
     className?: string,
-} 
+}
 
-export function MainLayout({title, description, children}:IMainLayoutProps) {
+export function MainLayout({ title, description, children }: IMainLayoutProps) {
 
-    return(
+    return (
         <>
-        <Head>
-            <title>{title}</title>
-            <meta name='description' content={description}></meta>
-        </Head>
+            <Head>
+                <title>{title}</title>
+                <meta name='description' content={description}></meta>
+            </Head>
 
-        <header>
-            <div className='wrap'>
-                <nav>
-                    <Button variant="outlined" href='/'>Main</Button>
-                    <Button variant="outlined" href='/products'>Products</Button>
-                </nav>
-            </div>
-        </header>
-
-        <main>
-            <div className='wrap'>
-                <div className='content'>
-                    {children}
+            <header>
+                <div className='wrap'>
+                    <nav>
+                        <Button variant="outlined" href='/'>Main</Button>
+                        <Button variant="outlined" href='/products'>Products</Button>
+                    </nav>
                 </div>
-            </div>
-        </main>
+            </header>
 
-        <footer>
-            <div className='wrap'>
-                <div>Подвал сайта</div>
-            </div>
-        </footer>
+            <main>
+                <div className='wrap'>
+                    <div className='content'>
+                        {children}
+                    </div>
+                </div>
+            </main>
 
-        <div className="language">
-            <img src="/image/lang__ru.png" alt="ru" data-google-lang="ru" className="language__img"/>
-            <img src="/image/lang__uk.png" alt="uk" data-google-lang="uk" className="language__img"/>
-            <img src="/image/lang__en.png" alt="en" data-google-lang="en" className="language__img"/>
-        </div>
+            <footer>
+                <div className='wrap'>
+                    <div>Подвал сайта</div>
+                </div>
+            </footer>
+
+            <div className="language">
+                <img src="/image/lang__ru.png" alt="ru" data-google-lang="ru" className="language__img" />
+                <img src="/image/lang__uk.png" alt="uk" data-google-lang="uk" className="language__img" />
+                <img src="/image/lang__en.png" alt="en" data-google-lang="en" className="language__img" />
+            </div>
         </>
     )
 }

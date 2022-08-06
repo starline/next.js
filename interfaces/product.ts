@@ -1,13 +1,13 @@
 export interface IProduct {
-    id:number,
-    title:string,
-    body:string
+    id: number,
+    title: string,
+    body: string
 }
 
-export interface IProducts{
+export interface IProducts {
     products: IProduct[]
 }
 
-export interface IProductProps{
+export interface IProductProps {
     product: IProduct
 }
