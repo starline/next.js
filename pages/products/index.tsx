@@ -2,8 +2,13 @@ import { Link } from '@mui/material';
 import Head from 'next/head';
 import { IProduct, IProducts } from '../../interfaces/product';
 import {MainLayout} from "../../layouts/MainLayout";
+import selectArr from '../../components/types';
+import {Product} from '../../components/product';
 
 export default function Products({products}:IProducts) {
+
+  selectArr([0,1,2]);
+
   return(
     <MainLayout title={'Products Page'} description={"Описание страницы Товаров"}>
 
@@ -14,10 +19,8 @@ export default function Products({products}:IProducts) {
       <h1>Товары</h1>
       
       <div className='product_row'>
-        {products.map(product => (
-          <div className='product_item' key={product.id}>
-            <Link href={`/products/${product.id}`}>{product.id} {product.title}</Link>
-          </div>
+        {products.map((product:IProduct) => (
+          <Product product={product} key={product.id}/>
         ))}
       </div>
     </MainLayout>

@@ -120,8 +120,8 @@ const properyE = 'e'
 myObject[properyE] = 'значние e'
 
 // Область видимости 
-const hello='hello'
-const world='world'
+const hello:string='hello'
+const world:string='world'
 const join = `${hello} ${world}`
 
 // ... 
@@ -134,6 +134,9 @@ function addProp(var1:string, var2:string, var3:string, var4:string):string{
   return var1+var2+var3+var4 
 }
 
-console.log(addProp(...arr10))
+export default function selectArr(arr:number[]):void {
+  console.log(arr)
+}
 
+console.log(addProp(...arr10))
 console.dir(myObject)
