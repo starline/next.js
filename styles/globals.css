@@ -93,3 +93,6 @@ footer .wrap {
   border: 1px solid #ccc;
   width: fit-content;
 }
+.product_item:hover{
+  border-color: rgb(70, 70, 70);
+}
