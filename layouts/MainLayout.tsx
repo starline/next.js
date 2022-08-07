@@ -1,6 +1,7 @@
 import Button from '@mui/material/Button'
 import Head from 'next/head'
 import React from 'react'
+import GoogleTranslate from '../lib/GoogleTranslate'
 
 type IMainLayoutProps = {
     children: React.ReactNode,
@@ -35,17 +36,13 @@ export function MainLayout({ title, description, children }: IMainLayoutProps) {
                 </div>
             </main>
 
+            <GoogleTranslate originalLang='ru' langFirstVisit='uk' domain='localhost:3000'></GoogleTranslate>
+
             <footer>
                 <div className='wrap'>
                     <div>Подвал сайта</div>
                 </div>
             </footer>
-
-            <div className="language">
-                <img src="/image/lang__ru.png" alt="ru" data-google-lang="ru" className="language__img" />
-                <img src="/image/lang__uk.png" alt="uk" data-google-lang="uk" className="language__img" />
-                <img src="/image/lang__en.png" alt="en" data-google-lang="en" className="language__img" />
-            </div>
         </>
     )
 }
