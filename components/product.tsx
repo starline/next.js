@@ -18,8 +18,8 @@ export class Product extends React.Component<IProductProps, IState> {
 
         return (
             <Link href={`/products/${this.props.product.id}`}>
-                <a>
-                    <div className='product_item'>
+                <a className='product_item'>
+                    <div >
                         <div className="product_item_name">{this.props.product.id} {this.props.product.title}</div>
                         <Timer></Timer>
                     </div>
