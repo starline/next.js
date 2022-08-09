@@ -1,27 +1,46 @@
-import { Link } from '@mui/material';
+import { Button, Link } from '@mui/material';
 import Head from 'next/head';
 import { IProduct, IProducts } from '../../interfaces/product';
 import { MainLayout } from "../../layouts/MainLayout";
 import selectArr from '../../components/types';
 import { Product } from '../../components/product';
+import { useState } from 'react';
+
 
 export default function Products({ products }: IProducts) {
 
-  selectArr([0, 1, 2]);
+  const [addProducts, setAddProducts] = useState(products);
+
+  //selectArr([0, 1, 2]);
+
+  const handleClick = () =>{
+    const id = addProducts[addProducts.length - 1].id + 1
+    const newProduct = [{
+        id,
+        title: `Товар`,
+        body: 'Описание товара'
+    }]
+    setAddProducts(addProducts.concat(newProduct))
+
+  }
 
   return (
     <MainLayout title={'Products Page'} description={"Описание страницы Товаров"}>
-
+      
       <Head>
         <title>страница Товаров</title>
       </Head>
 
       <h1>Товары</h1>
 
-      <div className='product_row'>
-        {products.map((product: IProduct) => (
+      <div className='product_row'> 
+        {addProducts.map((product: IProduct) => (
           <Product product={product} key={product.id} />
         ))}
+      </div>
+      
+      <div className='add_btn'>
+        <Button variant='contained' onClick={handleClick}>Добавить товар</Button>
       </div>
     </MainLayout>
   )
