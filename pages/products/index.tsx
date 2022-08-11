@@ -2,7 +2,6 @@ import { Button, Link } from '@mui/material';
 import Head from 'next/head';
 import { IProduct, IProducts } from '../../interfaces/product';
 import { MainLayout } from "../../layouts/MainLayout";
-import selectArr from '../../components/types';
 import { Product } from '../../components/product';
 import { useState } from 'react';
 

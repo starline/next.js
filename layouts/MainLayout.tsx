@@ -24,7 +24,8 @@ export function MainLayout({ title, description, children }: IMainLayoutProps) {
                     <nav>
                         <Button variant="outlined" href='/'>Main</Button>
                         <Button variant="outlined" href='/products'>Products</Button>
-                        <Button variant="outlined" href='/page'>Page</Button>
+                        <Button variant="outlined" href='/lessons/context'>Context</Button>
+                        <Button variant="outlined" href='/lessons/types'>Types</Button>
                     </nav>
                 </div>
             </header>

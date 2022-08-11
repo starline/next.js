@@ -1,8 +1,8 @@
 import { Button } from "@mui/material";
 import React from "react";
-import { MainLayout } from "../layouts/MainLayout";
+import { MainLayout } from "../../layouts/MainLayout";
 
-export default class Page extends React.Component {
+export default class Context extends React.Component {
 
     constructor(props) {
         super(props)
