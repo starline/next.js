@@ -1,13 +1,28 @@
-import { AppBar, Box, Button, IconButton, Menu, MenuItem, Toolbar, Typography } from '@mui/material'
+import { AppBar, Box, Button, IconButton, Menu, MenuItem, Slide, Toolbar, Typography, useScrollTrigger } from '@mui/material'
 import Link from 'next/link'
 import React, { Component } from 'react'
 import { route } from '../utils/const'
 import MenuIcon from '@mui/icons-material/Menu';
 
-interface IProps { }
+interface IProps {
+    children: React.ReactElement
+    window?: () => Window
+}
 interface IState {
-    anchorEl: null | HTMLElement,
+    anchorEl: null | HTMLElement
     open: boolean
+}
+
+
+function HideOnScroll(props: IProps) {
+    const { children } = props;
+    const trigger = useScrollTrigger();
+
+    return (
+        <Slide appear={false} direction="down" in={!trigger}>
+            {children}
+        </Slide>
+    );
 }
 
 export default class Navbar extends Component<IProps, IState> {
@@ -37,8 +52,8 @@ export default class Navbar extends Component<IProps, IState> {
 
     render() {
         return (
-            <Box sx={{ flexGrow: 1 }}>
-                <AppBar position="static">
+            <HideOnScroll {...this.props}>
+                <AppBar>
                     <Toolbar variant="dense">
                         <IconButton
                             id='menu-button'
@@ -54,14 +69,11 @@ export default class Navbar extends Component<IProps, IState> {
                             open={this.state.open}
                             anchorEl={this.state.anchorEl}
                             onClose={this.handleClose}
-                            keepMounted
-                            MenuListProps={{
-                                'aria-labelledby': 'menu-button',
-                            }}
                             transformOrigin={{
                                 vertical: 'top',
                                 horizontal: 'left',
-                            }}>
+                            }}
+                            anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}>
                             <MenuItem onClick={this.handleClose}>Profile</MenuItem>
                             <MenuItem onClick={this.handleClose}>My account</MenuItem>
                             <MenuItem onClick={this.handleClose}>Logout</MenuItem>
@@ -77,7 +89,7 @@ export default class Navbar extends Component<IProps, IState> {
                         )}
                     </Toolbar>
                 </AppBar>
-            </Box>
+            </HideOnScroll>
         )
     }
 }
