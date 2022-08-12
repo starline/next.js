@@ -5,7 +5,7 @@ import { route } from '../utils/const'
 import MenuIcon from '@mui/icons-material/Menu';
 
 interface IProps {
-    children: React.ReactElement
+    children?: React.ReactElement
     window?: () => Window
 }
 interface IState {

@@ -4,10 +4,10 @@ import Navbar from '../components/navbar'
 import GoogleTranslate from '../lib/GoogleTranslate'
 
 type IMainLayoutProps = {
-    children: React.ReactNode,
-    title: string,
-    description?: string,
-    className?: string,
+    children: React.ReactNode
+    title: string
+    description?: string
+    className?: string
 }
 
 export default function MainLayout({ title, description, children }: IMainLayoutProps) {
