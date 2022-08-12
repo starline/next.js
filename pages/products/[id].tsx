@@ -1,9 +1,7 @@
 import { useRouter } from "next/router"
 import { GetServerSideProps } from "next/types"
 import { IProduct, IProductProps } from "../../interfaces/product"
-import { MainLayout } from "../../layouts/MainLayout"
-
-
+import MainLayout from "../../layouts/MainLayout"
 
 export default function Product({ product }: IProductProps) {
     const router = useRouter()

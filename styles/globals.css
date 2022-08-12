@@ -19,7 +19,6 @@ body {
   flex-direction: column;
 }
 
-header,
 main {
   margin: 0 10%;
 }

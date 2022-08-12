@@ -1,6 +1,6 @@
-import Button from '@mui/material/Button'
 import Head from 'next/head'
 import React from 'react'
+import Navbar from '../components/navbar'
 import GoogleTranslate from '../lib/GoogleTranslate'
 
 type IMainLayoutProps = {
@@ -10,7 +10,7 @@ type IMainLayoutProps = {
     className?: string,
 }
 
-export function MainLayout({ title, description, children }: IMainLayoutProps) {
+export default function MainLayout({ title, description, children }: IMainLayoutProps) {
 
     return (
         <>
@@ -19,16 +19,7 @@ export function MainLayout({ title, description, children }: IMainLayoutProps) {
                 <meta name='description' content={description}></meta>
             </Head>
 
-            <header>
-                <div className='wrap'>
-                    <nav>
-                        <Button variant="outlined" href='/'>Main</Button>
-                        <Button variant="outlined" href='/products'>Products</Button>
-                        <Button variant="outlined" href='/lessons/context'>Context</Button>
-                        <Button variant="outlined" href='/lessons/types'>Types</Button>
-                    </nav>
-                </div>
-            </header>
+            <Navbar></Navbar>
 
             <main>
                 <div className='wrap'>

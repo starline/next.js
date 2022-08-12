@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import { MainLayout } from "../../layouts/MainLayout";
+import MainLayout from "../../layouts/MainLayout";
 
 // Интерфейсы
 type login = string | number // Создаем свои типы

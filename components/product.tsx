@@ -15,7 +15,6 @@ export class Product extends React.Component<IProductProps, IState> {
     }
 
     render() {
-
         return (
             <Link href={`/products/${this.props.product.id}`}>
                 <a className='product_item'>
