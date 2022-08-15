@@ -1,17 +1,32 @@
 import { useRouter } from "next/router"
 import { GetServerSideProps } from "next/types"
-import { IProduct, IProductProps } from "../../interfaces/product"
+import { IProducts, IProductProps, IProduct } from "../../interfaces/product"
 import MainLayout from "../../layouts/MainLayout"
+import Image from "next/image";
+
 
 export default function Product({ product }: IProductProps) {
     const router = useRouter()
 
     return (
-        <MainLayout title={`Product Page ${product.id}`}>
-            <h1>{product.title} {product.id}</h1>
+        <MainLayout title={`${product.name}`}>
+            <h1>{product.name} </h1>
+            <Image src={product.image} width='200' height='200'/>
+            <ProductBody body={product.body}></ProductBody>
         </MainLayout>
     )
 }
+
+interface IProps{
+    body:string
+}
+
+function ProductBody(props:IProps){
+    return(
+        <div dangerouslySetInnerHTML={{__html: props.body}}/>
+    )
+}
+
 
 interface IServerSideProps extends GetServerSideProps {
     params: {
@@ -23,11 +38,9 @@ interface IServerSideProps extends GetServerSideProps {
 export async function getServerSideProps({ params }: IServerSideProps) {
 
     // Создаем данные, выбираем из базы
-    const product: IProduct = {
-        id: params.id,
-        title: 'Товар',
-        body: 'Описание товара'
-    }
+    const res = await fetch(`https://nastanok.ru/exchange/rest/products/${params.id}`)
+    const products: IProducts = await res.json()
+    const product: IProduct = products[0]
 
     // Возвращаем данные в props
     return {
