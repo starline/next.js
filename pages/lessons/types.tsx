@@ -36,7 +36,7 @@ interface ITypes {
 export default function Types() {
 
   const types: ITypes = {
-    number: 1,
+    number: 1, 
     string: 'string',
     boolean: true,
     object: {},
@@ -45,8 +45,12 @@ export default function Types() {
     symbol: Symbol('id')
   }
 
-  let content: ReactElement[] = [];
+  types.number = NaN // NaN - not a number
+  // ['', 'false', 0, NaN, undefined, null] = Boolean(false) 
 
+  
+
+  let content: ReactElement[] = [];
   const boolVar: boolean = true
   let numVar: number = 12
   numVar = 45

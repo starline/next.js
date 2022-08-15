@@ -1,9 +1,10 @@
-import { Button, Link } from '@mui/material';
+import { Button, Link, responsiveFontSizes } from '@mui/material';
 import Head from 'next/head';
 import { IProduct, IProducts } from '../../interfaces/product';
 import MainLayout from "../../layouts/MainLayout";
 import { Product } from '../../components/product';
 import { useState } from 'react';
+import { json } from 'stream/consumers';
 
 
 export default function Products({ products }: IProducts) {
@@ -16,7 +17,7 @@ export default function Products({ products }: IProducts) {
     const id = addProducts[addProducts.length - 1].id + 1
     const newProduct = [{
         id,
-        title: `Товар`,
+        name: `Товар`,
         body: 'Описание товара'
     }]
     setAddProducts(addProducts.concat(newProduct))
@@ -48,24 +49,10 @@ export default function Products({ products }: IProducts) {
 // Эта функция выполняется каждый раз при обращении к странице на стороне сервера
 export async function getServerSideProps() {
 
-  // Создаем данные
-  const products: IProduct[] = [
-    {
-      id: 1,
-      title: 'Первый товар',
-      body: 'Описание первого товара'
-    },
-    {
-      id: 2,
-      title: 'Второй товар "2" ',
-      body: 'Описание второго товара'
-    },
-    {
-      id: 3,
-      title: 'Третий продук',
-      body: 'Описание треьего продукта'
-    }
-  ]
+
+  const res =  await fetch('https://nastanok.ru/exchange/rest/products?page=1&limit=5')
+  const data:IProduct[] = await res.json()
+  const products: IProduct[] = data
 
   // Возвращаем данные в props
   return {

@@ -18,24 +18,26 @@ export default function MainLayout({ title, description, children }: IMainLayout
                 <title>{title}</title>
                 <meta name='description' content={description}></meta>
             </Head>
+            <div className='main_wrap'>
+                <Navbar></Navbar>
 
-            <Navbar></Navbar>
-
-            <main>
-                <div className='wrap'>
-                    <div className='content'>
-                        {children}
+                <main>
+                    <div className='wrap'>
+                        <div className='content'>
+                            {children}
+                        </div>
                     </div>
-                </div>
-            </main>
+                </main>
+
+                <footer>
+                    <div className='wrap'>
+                        <div>Подвал сайта</div>
+                    </div>
+                </footer>
+            </div>
 
             <GoogleTranslate originalLang='ru' langFirstVisit='uk' domain='localhost:3000'></GoogleTranslate>
 
-            <footer>
-                <div className='wrap'>
-                    <div>Подвал сайта</div>
-                </div>
-            </footer>
         </>
     )
 }

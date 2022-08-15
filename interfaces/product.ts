@@ -1,7 +1,10 @@
 export interface IProduct {
     id: number,
-    title: string,
-    body: string
+    name: string,
+    body: string,
+    anotation?: string,
+    image?: string,
+    url?: string
 }
 
 export interface IProducts {
