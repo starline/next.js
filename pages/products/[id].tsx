@@ -9,7 +9,7 @@ export default function Product({ product }: IProductProps) {
     const router = useRouter()
 
     return (
-        <MainLayout title={`${product.name}`}>
+        <MainLayout title={`${product.name}`} description={product.meta_description}>
             <h1>{product.name} </h1>
             <Image src={product.image} width='200' height='200'/>
             <ProductBody body={product.body}></ProductBody>

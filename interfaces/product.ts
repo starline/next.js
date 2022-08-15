@@ -4,7 +4,8 @@ export interface IProduct {
     body: string,
     anotation?: string,
     image?: string,
-    url?: string
+    url?: string,
+    meta_description: string
 }
 
 export interface IProducts {
