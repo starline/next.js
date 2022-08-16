@@ -23,5 +23,9 @@ export const route:Array<IRoute> = [
     {
         name: 'Field',
         path: '/lessons/field'
+    },
+    {
+        name: 'Scope',
+        path: '/lessons/scope'
     }
 ]

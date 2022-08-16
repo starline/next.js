@@ -3,14 +3,13 @@ import { Box } from '@mui/system'
 import React from 'react'
 import MainLayout from '../../layouts/MainLayout'
 
-interface IProps { }
-interface IField {
+interface IProps {}
+interface IField  {
     id: string
     label: string
-    otherProps?: string,
-    multiline?: boolean,
-    fullWidth?: boolean,
-    row?: number
+    multiline?: boolean
+    fullWidth?: boolean
+    rows?: number
 }
 
 export default class Field extends React.Component<IProps> {
@@ -19,23 +18,19 @@ export default class Field extends React.Component<IProps> {
         super(props)
     }
 
-    FieldList() {
-
+    FieldList():IField[] {
         return [
             {
                 id: 'name',
                 label: 'Имя',
-                otherProps: ''
             },
             {
                 id: 'email',
                 label: 'Email',
-                otherProps: ''
             },
             {
                 id: 'adress',
                 label: 'Адрес',
-                otherProps: ''
             },
             {
                 id: 'comment',
