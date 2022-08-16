@@ -3,25 +3,60 @@ import { Box } from '@mui/system'
 import React from 'react'
 import MainLayout from '../../layouts/MainLayout'
 
-interface IProps {
+interface IProps { }
+interface IField {
+    id: string
+    label: string
+    otherProps?: string,
+    multiline?: boolean,
+    fullWidth?: boolean,
+    row?: number
 }
 
 export default class Field extends React.Component<IProps> {
 
     constructor(props: IProps) {
         super(props)
+    }
 
+    FieldList() {
+
+        return [
+            {
+                id: 'name',
+                label: 'Имя',
+                otherProps: ''
+            },
+            {
+                id: 'email',
+                label: 'Email',
+                otherProps: ''
+            },
+            {
+                id: 'adress',
+                label: 'Адрес',
+                otherProps: ''
+            },
+            {
+                id: 'comment',
+                label: 'Комментарий',
+                fullWidth: true,
+                multiline: true,
+                rows: 4
+            }
+        ]
     }
 
     render() {
         return (
             <MainLayout title={'Field Page'} description={"Описание страницы Field"}>
                 <Box component='form'>
-                    <TextField className='user_field' id="name" label="Имя" variant="outlined" size="small" />
-                    <TextField className='user_field' id="email" label="Email" variant="outlined" size="small" />
-                    <TextField className='user_field' id="phone" label="Телефон" variant="outlined" size="small" />
-                    <TextField className='user_field' id="adress" label="Адрес" variant="outlined" size="small" />
-                    <TextField className='user_field' id="comment" label="Комментарий пользователя" variant="outlined" fullWidth size="small" multiline rows={4} />
+                    {this.FieldList().map((field: IField) => (
+                        <div key={field.id} className='user_field'>
+                            <TextField variant="outlined" size="small" {...field} />
+                        </div>
+                    ))}
+
                     <Button variant="contained">Сохранить</Button>
                 </Box>
             </MainLayout>
