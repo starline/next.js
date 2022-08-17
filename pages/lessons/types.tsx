@@ -4,6 +4,11 @@ import MainLayout from "../../layouts/MainLayout";
 // Интерфейсы
 type myType = string | number // Создаем свои типы
 
+interface IClass {
+  id: number
+  method: () => Date
+}
+
 interface IRect {
   readonly id: number, // только для чтения
   color?: string, // необязательный 
@@ -36,6 +41,7 @@ interface ITypes {
   undefined: undefined,
   symbol: symbol
 }
+
 
 
 // General function of functionality component
@@ -74,7 +80,7 @@ export default function Types() {
     console.log('selectArr: ' + arr)
   }
   myFunction('ok')
-  selectArr([1,2,3,4])
+  selectArr([1, 2, 3, 4])
 
 
 
@@ -107,14 +113,49 @@ export default function Types() {
   // CSS
   const rect2 = {} as IRectCSS // Создаем обьект с привязкой по типу
   rect2.css = {
-    'margin-top': '10px',
-    'border': '1px solid #ccc',
-    'padding': '20px'
+    marginTop: '10px',
+    border: '1px solid #ccc',
+    padding: '20px'
   }
   content.push(<>New Object as IReactCSS: {JSON.stringify(rect2)}</>)
 
+  // Type in Class
+  class TimeClass implements IClass {
+    id: number;
+    readonly version: number // можно менять только в constructor
+    protected protectedDate: Date
+    public publicVar: number = 3
 
-  // enum
+    constructor(version: number) {
+      this.version = version
+    }
+
+    private privatMethod() {
+      return new Date()
+    }
+
+    method() {
+      return this.privatMethod()
+    }
+  }
+
+  class ExTimeClass extends TimeClass {
+
+    public setTime() {
+      this.protectedDate = this.method()
+    }
+
+    getProtectedVar() {
+      return this.protectedDate
+    }
+  }
+
+  const timer = new ExTimeClass(12)
+  timer.setTime()
+  content.push(<>timer.version: {timer.version} - timer.getProtectedVar: {timer.getProtectedVar().toLocaleTimeString()}</>)
+
+  // enum (TypeScript) 
+  // В JS нет enum
   enum Membership {
     Simle = '100$',
     Sradart = '200$',
@@ -122,6 +163,10 @@ export default function Types() {
   }
   content.push(<>Membership.Premium: {Membership.Premium}</>)
 
+  type KeyOfType  = keyof ITypes
+  let keyType: KeyOfType = "number"
+  content.push(<>keyType: {keyType}</>)
+  
   return (
     <MainLayout title={'Types'} description={"Описание страницы Types"}>
       <h1>Types, Interface</h1>
