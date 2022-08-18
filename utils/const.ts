@@ -3,7 +3,7 @@ interface IRoute {
     path: string
 }
 
-export const route:Array<IRoute> = [
+export const route: Array<IRoute> = [
     {
         name: 'Main',
         path: '/'
@@ -27,5 +27,9 @@ export const route:Array<IRoute> = [
     {
         name: 'Scope',
         path: '/lessons/scope'
+    },
+    {
+        name: 'Function',
+        path: '/lessons/function'
     }
 ]

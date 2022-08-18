@@ -119,6 +119,10 @@ export default function Types() {
   }
   content.push(<>New Object as IReactCSS: {JSON.stringify(rect2)}</>)
 
+  // Создаем переменную по свойству обьекта
+  const {marginTop} = rect2.css
+  content.push(<>marginTop: {marginTop}</>)
+
   // Type in Class
   class TimeClass implements IClass {
     id: number;

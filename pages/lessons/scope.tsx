@@ -1,5 +1,4 @@
 import React, { ReactElement } from 'react'
-import { isArray } from 'util'
 import MainLayout from '../../layouts/MainLayout'
 
 
@@ -105,7 +104,7 @@ export default function Scope() {
   // Удлаить повторяющиеся символы
   function removeDupes(str: string): string {
     const strArray: string[] = str.split('')
-    let  clearArr: string[] = []
+    let clearArr: string[] = []
 
     // for (let i = 0; i < strArray.length; i++) {
     //   if (!clearArr.includes(strArray[i])) {
@@ -125,6 +124,7 @@ export default function Scope() {
   }
   content.push(<>removeDupes: {removeDupes('abcd')} - {removeDupes('aabbccdd')} - {removeDupes('abcddbca')} - {removeDupes('abababcdcdcd')}</>)
 
+
   // Стрелочная функция
   const arrowFunction = () => {
     console.log('arrowFunction')
@@ -137,6 +137,6 @@ export default function Scope() {
       <div>
         {content.map((element, index) => <p key={index}><b>{index}</b>. {element}</p>)}
       </div>
-    </MainLayout >
+    </MainLayout>
   )
 }
