@@ -1,6 +1,19 @@
-import { Button, Chip, Box, FormControlLabel, Switch } from "@mui/material";
+import { Button, Chip, Box, FormControlLabel, Switch, TextField, Fab } from "@mui/material";
 import React from "react";
 import MainLayout from "../../layouts/MainLayout";
+import AddIcon from '@mui/icons-material/Add';
+
+
+function WarningMessage(props) {
+    if (!props.message)
+        return null
+
+    return (
+        <div className="warning">
+            Предупреждение!
+        </div>
+    )
+}
 
 export default class Context extends React.Component {
 
@@ -13,12 +26,15 @@ export default class Context extends React.Component {
         }
 
         this.state.chipOn = true
+        this.state.newChip = ''
 
         let chipData = ['Первый элемень', 'Второй Chip']
 
         this.handleClick = this.handleClick.bind(this)
         this.handleChipDelete = this.handleChipDelete.bind(this)
         this.handleChange = this.handleChange.bind(this)
+        this.handlFabClick = this.handlFabClick.bind(this)
+        this.handleInputChange = this.handleInputChange.bind(this)
 
         // Context JS
         function ff() {
@@ -91,6 +107,19 @@ export default class Context extends React.Component {
         })
     }
 
+    handlFabClick() {
+        this.setState((prevState)=>({
+            chipData: prevState.chipData.concat([prevState.newChip])
+        }))
+    }
+
+    handleInputChange(event) {
+        this.setState({
+            newChip: event.target.value
+        })
+
+    }
+
     render() {
         return (
             <MainLayout title={'Page'} description={"Описание страницы Page"}>
@@ -109,10 +138,19 @@ export default class Context extends React.Component {
                     </Box>
 
                     {this.state.chipOn && (
-                        <Box sx={{ mt: '20px', display: 'flex', flexWrap: 'wrap', justifyContent: 'flex-start' }}>
-                            {this.state.chipData.map((chip, index) =>
-                                <Chip sx={{ mr: '15px', mb: '15px' }} key={index} label={chip} color="success" variant="outlined" onDelete={() => (this.handleChipDelete(index))} />
-                            )}
+                        <Box sx={{ mt: '15px' }}>
+                            <Box>
+                                <TextField variant="outlined" size="small" label='Название блока' name='chipAdd' value={this.state.newChip} onChange={this.handleInputChange} />
+                                <Fab sx={{ ml: '15px' }} size="small" color="secondary" aria-label="add" onClick={this.handlFabClick}>
+                                    <AddIcon />
+                                </Fab>
+                            </Box>
+
+                            <Box sx={{ mt: '20px', display: 'flex', flexWrap: 'wrap', justifyContent: 'flex-start' }}>
+                                {this.state.chipData.map((chip, index) =>
+                                    <Chip sx={{ mr: '15px', mb: '15px' }} key={index} label={chip} color="success" variant="outlined" onDelete={() => (this.handleChipDelete(index))} />
+                                )}
+                            </Box>
                         </Box>
                     )}
                 </div>
@@ -121,13 +159,3 @@ export default class Context extends React.Component {
     }
 }
 
-function WarningMessage(props) {
-    if (!props.message)
-        return null
-
-    return (
-        <div className="warning">
-            Предупреждение!
-        </div>
-    )
-}

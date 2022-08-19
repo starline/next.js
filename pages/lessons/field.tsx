@@ -6,6 +6,7 @@ import MainLayout from '../../layouts/MainLayout'
 interface IProps {}
 interface IField  {
     id: string
+    name: string
     label: string
     multiline?: boolean
     fullWidth?: boolean
@@ -22,18 +23,22 @@ export default class Field extends React.Component<IProps> {
         return [
             {
                 id: 'name',
-                label: 'Имя',
+                name: 'name',
+                label: 'Имя'
             },
             {
                 id: 'email',
-                label: 'Email',
+                name: 'email',
+                label: 'Email'
             },
             {
                 id: 'adress',
-                label: 'Адрес',
+                name: 'adress',
+                label: 'Адрес'
             },
             {
                 id: 'comment',
+                name: 'comment',
                 label: 'Комментарий',
                 fullWidth: true,
                 multiline: true,
