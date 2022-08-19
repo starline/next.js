@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, Chip, Box } from "@mui/material";
 import React from "react";
 import MainLayout from "../../layouts/MainLayout";
 
@@ -6,9 +6,14 @@ export default class Context extends React.Component {
 
     constructor(props) {
         super(props)
+
         this.state = { shawWorning: true }
         this.state = { testvar: 'testvar' }
+
+        const chipData = ['Первый элемень', 'Второй Chip'];
+
         this.HandleClick = this.HandleClick.bind(this)
+        this.HandleChipDelete = this.HandleChipDelete.bind(this)
 
         // Context JS
         function ff() {
@@ -55,8 +60,9 @@ export default class Context extends React.Component {
             })
         }
         array.mult(2)
-        console.log(array)
+        chipData.push('Array.mult: ' + array.join(' '))
 
+        this.state = { chipData: chipData }
     }
 
     HandleClick() {
@@ -65,7 +71,16 @@ export default class Context extends React.Component {
         }))
     }
 
+    HandleChipDelete(index) {
+        this.setState((prevState) => {
+            let chipData = [...prevState.chipData]
+            chipData.splice(index, 1)
+            return { chipData }
+        })
+    }
+
     render() {
+        let chipOn = true
 
         return (
             <MainLayout title={'Page'} description={"Описание страницы Page"}>
@@ -79,6 +94,12 @@ export default class Context extends React.Component {
 
                     <WarningMessage message={this.state.shawWorning}></WarningMessage>
 
+                    <Box sx={{ mt: '20px', display:'flex' , flexWrap:'wrap', justifyContent:'flex-start'}}>
+                        {chipOn &&
+                            this.state.chipData.map((chip, index) =>
+                                <Chip sx={{mr: '15px'}} key={index} label={chip} color="success" variant="outlined" onDelete={() => (this.HandleChipDelete(index))} />
+                            )}
+                    </Box>
                 </div>
             </MainLayout>
         )
