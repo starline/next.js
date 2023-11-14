@@ -8,7 +8,7 @@ export default function tbot(req: NextApiRequest, res: NextApiResponse) {
     const bot: TelegramBot = new TelegramBot(token, { polling: true })
 
     if (req.query.command === 'start') {
-        res.json({ response: 'Бот Grizli запущен' })
+        res.json({ response: 'Бот Grizli запущен!' })
     }
 
     /*     bot.setMyCommands([
